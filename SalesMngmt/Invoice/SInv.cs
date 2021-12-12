@@ -246,7 +246,6 @@ namespace SalesMngmt.Invoice
                             row.Cells[2].Value = txtctn.Text.DefaultZero();
                             if (txtCode.Text != "")
                             {
-                                txtpcs.Text = (Convert.ToDouble(row.Cells[3].Value) + Convert.ToDouble(1)).ToString();
                                 double value = Convert.ToDouble(txtpcs.Text);
                                 double ctn;
                                 if (Convert.ToDouble(item.CTN_PCK.DefaultZero()) == 0)
@@ -278,7 +277,6 @@ namespace SalesMngmt.Invoice
                                     row.Cells[8].Value = txtNet.Text.DefaultZero();
                                     row.Cells[9].Value = txtPcsRate.Text.DefaultZero();
                                     row.Cells[10].Value = txtSaleRate.Text.DefaultZero();
-
                                 }
                                 else
                                 {
@@ -294,6 +292,7 @@ namespace SalesMngmt.Invoice
                                     row.Cells[9].Value = txtPcsRate.Text.DefaultZero();
                                     row.Cells[10].Value = txtSaleRate.Text.DefaultZero();
                                 }
+                                txtpcs.Text = row.Cells[3].Value.ToString();
                             }
                             else
                             {
@@ -1017,6 +1016,14 @@ namespace SalesMngmt.Invoice
 
                 orderHeader.Add(orders1);
 
+                var Companies = new Companies().GetCompanyID(compID);
+                orderList.ForEach(x =>
+                {
+                    x.CompanyTitle = Companies.CompanyTitle;
+                    x.CompanyPhone = Companies.CompanyPhone;
+                    x.CompanyAddress = Companies.CompanyAddress;
+                });
+
                 LocalReport localReport = new LocalReport();
                 localReport.DataSources.Add(new ReportDataSource("DataSet1", orderList));
                 localReport.DataSources.Add(new ReportDataSource("DataSet2", orderHeader));
@@ -1118,15 +1125,10 @@ namespace SalesMngmt.Invoice
         private void cmbxAccID_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dsa = Convert.ToInt32(cmbxAccID.SelectedIndex);
-
             if (dsa >= 1)
             {
-
-
                 int value = Convert.ToInt32(cmbxAccID.SelectedValue);
                 var vendor = db.COA_D.AsNoTracking().Where(x => x.CAC_Code == value).ToList();
-
-
                 FillCombo(cmbxvendor, vendor, "AC_Title", "AC_Code", 0);
             }
             else if (dsa == 0)
@@ -1134,8 +1136,6 @@ namespace SalesMngmt.Invoice
 
                 //   int value = Convert.ToInt32(cmbxAccID.SelectedValue);
                 var vendor = db.COA_D.Where(x => x.CAC_Code == 1).ToList();
-
-
                 FillCombo(cmbxvendor, vendor, "AC_Title", "CAC_Code", 0);
 
             }
@@ -1908,7 +1908,8 @@ namespace SalesMngmt.Invoice
         {
             if (cmbxItems.Text.Trim() != string.Empty)
             {
-                var item = listItems.Find(x => x.IName.ToLower().Trim() == cmbxItems.Text.ToLower().Trim());
+                var itemname = cmbxItems.Text.ToLower().Trim();
+                var item = listItems.FirstOrDefault(x => x.IName.ToLower().Trim() == itemname);
                 if (item == null)
                 {
                     return;

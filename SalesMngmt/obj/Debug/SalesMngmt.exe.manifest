@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lib.dll" size="814080">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lib.dll" size="814592">
       <assemblyIdentity name="Lib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>W07UA6M1tEhZIfRgiztoM/mNN/r8Z4efV6nNWzi4aTQ=</dsig:DigestValue>
+        <dsig:DigestValue>YfZQDy9XTZOFjTZlQtLwAvWMZcxkAIsdn8PXVzRBzr8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -199,14 +199,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SalesMngmt.exe" size="4562872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SalesMngmt.exe" size="4573624">
       <assemblyIdentity name="SalesMngmt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TXgWFN51psHAKhPDNjIPArq4bQSPEOQcE//cp/0/+W8=</dsig:DigestValue>
+        <dsig:DigestValue>mBbTeyRX7ju0bU8A/iGgRjpW/bYxDb5g+FTAJSxP8YM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
