@@ -1,13 +1,14 @@
-﻿using Lib;
+﻿using DIagnoseMgmt;
+using Lib;
 using Lib.Entity;
 using Lib.Model;
 using Lib.Utilities;
 using Microsoft.Reporting.WinForms;
 using SalesMngmt.Configs;
 using SalesMngmt.Utility;
-using SnaksalesERP;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
@@ -108,6 +109,7 @@ namespace SalesMngmt.Invoice
             // cmbxAccID.SelectedValue = vendorAcode.AC_Code;
 
             lblRID.Text = "0";
+            radioButton1.Checked = true;
         }
 
         private void metroTextBox1_Leave(object sender, EventArgs e)
@@ -1024,14 +1026,28 @@ namespace SalesMngmt.Invoice
                     x.CompanyAddress = Companies.CompanyAddress;
                 });
 
-                LocalReport localReport = new LocalReport();
-                localReport.DataSources.Add(new ReportDataSource("DataSet1", orderList));
-                localReport.DataSources.Add(new ReportDataSource("DataSet2", orderHeader));
-                //localReport.ReportPath = "SkyIce.Report1.rdlc";
-                localReport.ReportEmbeddedResource = "SalesMngmt.Reporting.Definition.SaleReceiptDisc.rdlc";
-                //    C:\Users\hair\Desktop\New folder (5)\Setup\New folder\SalesMgmt\SalesMngmt\Reporting\Definition\SaleReceiptDisc.rdlc
+                Silent silent = new Silent();
+                ReportViewer reportViewer1 = new ReportViewer();
+                if (radioButton1.Checked)
+                {
+                    Printer.setDef(ConfigurationManager.AppSettings["Thermal"].ToString());
+                    silent.Run(reportViewer1, orderList, "SalesMngmt.Reporting.Definition.SaleReceiptDisc.rdlc");
+                }
+                else
+                {
+                    Printer.setDef(ConfigurationManager.AppSettings["A4"].ToString());
+                    Form2 form2 = new Form2(orderList);
+                    //silent.Run(reportViewer1, orderList, "SalesMngmt.Reporting.Definition.rptSaleInvPrint.rdlc");
+                }
 
-                localReport.PrintToPrinter();
+                //LocalReport localReport = new LocalReport();
+                //localReport.DataSources.Add(new ReportDataSource("DataSet1", orderList));
+                //localReport.DataSources.Add(new ReportDataSource("DataSet2", orderHeader));
+                ////localReport.ReportPath = "SkyIce.Report1.rdlc";
+                //localReport.ReportEmbeddedResource = "SalesMngmt.Reporting.Definition.SaleReceiptDisc.rdlc";
+                ////    C:\Users\hair\Desktop\New folder (5)\Setup\New folder\SalesMgmt\SalesMngmt\Reporting\Definition\SaleReceiptDisc.rdlc
+
+                //localReport.PrintToPrinter();
                 int mode = Convert.ToInt32(cmbxPaymentMode.SelectedValue);
 
                 int Cashmode = Convert.ToInt32(cmbxAccID.SelectedValue);

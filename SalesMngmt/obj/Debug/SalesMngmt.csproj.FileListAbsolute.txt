@@ -2979,3 +2979,4 @@ D:\New folder\SalesMngmt\obj\Debug\SalesMngmt.application
 D:\New folder\SalesMngmt\obj\Debug\SalesMngmt.csproj.CopyComplete
 D:\New folder\SalesMngmt\obj\Debug\SalesMngmt.exe
 D:\New folder\SalesMngmt\obj\Debug\SalesMngmt.pdb
+D:\New folder\SalesMngmt\obj\Debug\DIagnoseMgmt.Form2.resources

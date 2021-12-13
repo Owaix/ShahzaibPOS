@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalesMngmt.Invoice;
+using System;
 using System.Windows.Forms;
 
 namespace SalesMngmt
@@ -13,7 +14,7 @@ namespace SalesMngmt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Signin());
+            Application.Run(new SInv(1011));
         }
     }
 }

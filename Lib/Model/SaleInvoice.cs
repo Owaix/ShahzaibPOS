@@ -2,7 +2,7 @@
 
 namespace Lib.Model
 {
-    public class SaleInvoice
+    public class SaleInvoice : ReportsModel
     {
 
         public string InvoiceID { get; set; }
@@ -28,5 +28,9 @@ namespace Lib.Model
         public string CompanyTitle { get; set; }
         public string CompanyPhone { get; set; }
         public string CompanyAddress { get; set; }
+        public int Rows { get; set; }
+        public float RowHeight { get; set; }
+        public int CompanyID { get; set; }
+        public string Note { get; set; }
     }
 }

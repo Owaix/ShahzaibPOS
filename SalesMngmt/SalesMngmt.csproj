@@ -430,6 +430,12 @@
     <Compile Include="Reporting\DeleteOrders.designer.cs">
       <DependentUpon>DeleteOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\ItemSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -714,9 +720,13 @@
     <EmbeddedResource Include="Reporting\Definition\DetailSummary.rdlc" />
     <EmbeddedResource Include="Reporting\Definition\ItemSummary.rdlc" />
     <EmbeddedResource Include="Reporting\Definition\Print.rdlc" />
+    <EmbeddedResource Include="Reporting\Definition\rptSaleInvPrint.rdlc" />
     <EmbeddedResource Include="Reporting\Definition\Summary.rdlc" />
     <EmbeddedResource Include="Reporting\DeleteOrders.resx">
       <DependentUpon>DeleteOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporting\ItemSummary.resx">
       <DependentUpon>ItemSummary.cs</DependentUpon>
